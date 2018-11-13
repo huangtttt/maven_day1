@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.DeptDao">
+
+    <select id="findByPage" resultType="com.baizhi.entity.Dept">
+          select id,no,name,bir,number,annotation from t_emp limit #{start},#{rows}
+    </select>
+    <select id="findTotals" resultType="long">
+        select count(id) from t_emp
+    </select>
+    <insert id="save" parameterType="com.baizhi.entity.Dept">
+          insert into t_emp values(#{id},#{no},#{name},#{bir},#{number},#{annotation})
+    </insert>
+
+</mapper>
